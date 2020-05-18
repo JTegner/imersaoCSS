@@ -3,21 +3,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jordano Tegner</title>
-    <link rel="stylesheet" href="CSS/estilos.css">
-</head>
+	<link rel="stylesheet" href="CSS/estilos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&family=Source+Code+Pro&display=swap" rel="stylesheet"> 
+	<script src="https://kit.fontawesome.com/e6b8ecbb8f.js" crossorigin="anonymous"></script>
+	</head>
 <body>
     <header>
         <nav class="menu">
-          <ul>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Portfólio</a></li>
-          <li><a href="#">Contato</a></li>
+          <ul class="container">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#portfolio">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
-        <h1 class="site-title">Jordano Tegner </h1>
-        <h2 class="site-subtitle">Jr. frontend developer</h2>
-    </header>         
+        <div class="titulo"> <!--agrupa sem interferir no significado-->
+            <h1 class="site-title">Jordano Tegner </h1>
+            <h2 class="site-subtitle">Jr. frontend developer</h2>
+        </div>
+	</header>
+	<section class="sobre container">
+		<h2>Sobre</h2>
+		<figure class="avatar">
+			<img src="./img/ecommerce-creditos-s-o-c-i-a-l-c-u-t-unsplash.jpg" alt="Avatar Sobre">
+		</figure>
+		<p>
+			Unde necessitatibus fugiat similique aperiam ipsa voluptatum ex commodi
+			repellendus! Sequi libero accusantium facere quis, dolores voluptate
+			itaque distinctio natus iure, quibusdam eaque. Laborum incidunt nesciunt
+			facere aperiam quibusdam inventore.
+		</p>
+	
+		<p>
+			Unde necessitatibus fugiat similique aperiam ipsa voluptatum ex commodi
+			repellendus! Sequi libero accusantium facere quis, dolores voluptate
+			itaque distinctio natus iure, quibusdam eaque. Laborum incidunt nesciunt
+			facere aperiam quibusdam inventore.
+		</p>
+		<p>
+			Unde necessitatibus fugiat similique aperiam ipsa voluptatum ex commodi
+			repellendus! Sequi libero accusantium facere quis, dolores voluptate
+			itaque distinctio natus iure, quibusdam eaque. Laborum incidunt nesciunt
+			facere aperiam quibusdam inventore.
+		</p>
+	    <p>
+			Este site foi construído durante a
+			<a href="https://www.alura.com.br/imersao-css">Imersão CSS da Alura</a>
+			😻
+		</p>
+		</section>     
+	<section class="portfolio container" id="portfolio">
+		<h2>Projetos</h2>
+		<div class="grid">
+			<div class="flip-card">
+				<div class="card">
+					<figure class="card-front">
+						<img class="img-portfolio" src="./img/alura.png" alt="Alura">
+						<figcaption>Alura</figcaption>
+					</figure>
+					<div class="card-back">
+						Oi eu sou a parte de trás :)
+					</div>
+				</div>
+			</div>
+			<div class="flip-card">
+					<div class="card">
+					<figure class="card-front">
+						<img class="img-portfolio" src="./img/caelum.png" alt=">Caelum">
+						<figcaption>Caelum</figcaption>
+						</figure>
+					<div class="card-back">
+						Oi eu sou a parte de trás :)
+					</div>
+				</div>
+			</div>
+			<figure>
+				<img class="img-portfolio" src="./img/hispters.png" alt="hispters">
+				<figcaption>Hispters</figcaption>
+			</figure>
+			<figure>
+				<img class="img-portfolio" src="./img/likeaboss.png" alt="Like a boss">
+				<figcaption>Like a boss</figcaption>
+			</figure>
+			<figure>
+				<img class="img-portfolio" src="./img/hobby.png" alt="Hobby">
+				<figcaption>Hobby</figcaption>
+			</figure>
+		</div>
+	</section>
+	<section class="contato container" id="contato">
+		<h2>Contato</h2>
+	
+		<div class="grid icons">
+			<a target="_blank" href="https://jtegner.github.io/imersaoCSS/">
+				<i class="fab fa-github"></i>
+			</a>
+			<a target="_blank" href="https://twitter.com/paulo_caelum">
+				<i class="fab fa-twitter"></i>
+			</a>
+			<a target="_blank" href="https://linkedin.com/in/paulosilveira">
+				<i class="fab fa-linkedin"></i>
+			</a>
+			<a target="_blank" href="https://instagram.com/paulo_hipster">
+				<i class="fab fa-instagram"></i>
+			</a>
+			
+		</div>
+	</section>
 </body>
 </html>
 

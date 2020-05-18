@@ -1,10 +1,45 @@
+/* reset do CSS, nos vamos definir as margens paddings border-box para tirar a margem dos elementos
+x eixo horizontal
+y eixo vertical
+z eixo profundidade
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   /*background: #0022ff;*/
-  background-image: url('http://www.vanessametonini.com.br/imersaocss/a1/img/fundo.jpg');
+  /*background-image: url('http://www.vanessametonini.com.br/imersaocss/a1/img/fundo.jpg');*/
+  background-image: url('../img/fundo.jpg');
   background-size: auto 100vh;
   /*font-family: Arial;*/
+  font-family: 'Source Code Pro', monospace;
   height: 100vh;
+  font-size: 12px;
 }
+
+/* se a tela tiver pelo menos 400px vai carregar esses estilos*/
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/*breakpoints*/
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+}
+
 
 /* usado para mudar o unico elemento com o nome menu
 #menu {}
@@ -26,9 +61,22 @@ h1 {
 }
 */
 
+header {
+  height: 100vh; /* 100=100% Viewport heeight altura da minha tela de visao*/
+  display: flex; /* tudo vira coluna*/
+  justify-content: center; /*centraliza horizontalmente*/
+  align-items: center; /*centraliza verticalmente*/
+}
+
 .menu {
   background-color: white;
+  position: fixed; /*quando rola a tela fica fixo na tela*/
+  width: 100vw; /* 100=100% Viewport width largura da minha tela de visao*/
+  top: 0; /*para manter o position fixed no topo*/
+  z-index: 1; /*manter prioridade do menu sobre a aminacao*/
 }
+
+/*tag in-line não consegue alterar propriedade padding*/
 
 .menu ul {
   display: flex;
@@ -40,6 +88,25 @@ h1 {
   list-style: none;
 }
 
+.menu a {
+  display: block;
+  padding: 10px 20px;
+  /*background: aquamarine; para ver area e debugar*/
+  /*transicao elementos que sofrerao a transicao
+  tempo da transicao
+  */
+  transition: background-color 5s, color 2s;
+  /* sem definir as propriedades todas sofrerao o tempo da transicao
+  transition: 1s;
+  */
+}
+
+.menu a:active,
+.menu a:hover {
+  background-color: teal;
+  color: white;
+}
+
 a {
   color: teal;
   text-decoration: none;
@@ -49,12 +116,200 @@ a:hover {
   text-decoration: underline;
 }
 
+.titulo {
+  transform: scale(.2) translateY(50vh); /*translada no eixo y*/
+  opacity: 0; /*transparencia 0=totalmente transparente*/
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  /* 0 pode ser substituido por from e 1 por to */
+  /* estado incial ja esta definido em .titulo por isso 
+  nao precisa definir aqui
+  0% {
+   
+  } */
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    }
+}
+
 .site-subtitle,
 .site-title {
   color: whitesmoke;
   text-align: center;
 }
 
+.site-title {
+  font-size: 4em;
+  font-family: 'Bebas Neue', cursive;
+}
+
 .site-subtitle {
 font-style: italic;  
+font-family: 'Press Start 2P', cursive;
+line-height: 1.8em;
 }
+
+.sobre,
+.contato,
+.portfolio {
+  /*background-color: pink;*/
+  padding: 2em;
+  min-height: 100vh;
+}
+
+@media (min-width: 1200px){
+  .container {
+    max-width: 1200px;
+    margin-left: auto; /* usando na centralizacao */
+    margin-right: auto;
+  }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+  color: whitesmoke;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.sobre p {
+  color: white;
+  text-indent: 2em;
+  margin-bottom: 1.4em;
+  text-align: justify;
+}
+
+.sobre a {
+  color: white;
+  text-decoration: underline;
+}
+
+.sobre a:hover {
+  background-color: cyan;
+  text-decoration: underline;
+}
+
+.sobre .avatar {
+  float: right;
+  margin-left: 2em;
+}
+
+.sobre .avatar {
+  /*border-radius: 50%;*/
+  /*https://bennettfeely.com/clippy/*/  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  margin-left: 2em;
+}
+
+@media (min-width: 600px) {
+  .sobre .avatar {
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    float: right;
+  }
+}
+
+
+
+.portfolio .grid {
+  display: grid;
+  gap: 2em;
+  /* cada coluna com tamanho diferente
+  grid-template-columns: 240px 500px 300px;*/
+}
+
+@media (min-width: 560px) {
+  .portfolio .grid {
+    /* duas coluna com 240px*/
+    grid-template-columns: 240px 240px;
+  }  
+}
+
+@media (min-width: 880px) {
+  .portfolio .grid {
+    /* tres coluna com 240px*/
+    grid-template-columns: repeat(3, 260px);
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+  }  
+}
+
+.portfolio figure {
+  text-align: center;
+}
+
+.img-portfolio {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  object-position: left botton;
+  /*border-radius: 50%; tornar as figuras redondas*/
+  /*transiciona a propriedade transform em meio segundo*/
+  transition: transform 500ms;
+}
+
+
+/*.img-portfolio:hover {*/
+  /*transform aumenta um pouquino a imagem quando 
+  passa com o mouse em cima - default 1
+  valor 2 significa 2 vezes valor inicial da imagem*/
+  /*transform: scale(1.2); este estava em uso */
+  /*deg degree*/
+  /*transform: scale(1.2) rotate(45deg);*/
+/*}*/
+
+.flip-card {
+  /*background-color: purple;*/
+  perspective: 1000px;
+}
+
+.card {
+  /*background-color: red;*/
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: white;
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+.contato .icons {
+  text-align: center;
+}
+
+.contato a {
+  color: whitesmoke;
+  font-size: 3em;
+  transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover {
+  text-decoration: none;
+  /*
+  text-shadow: 0px 0px 10px yellowgreen;
+  */
+  /* rgba red/green/blue/alpha (alpha eh a transparencia de 0 a 1. 1=solida*/
+  text-shadow: 0px 0px 10px rgba(255,255,255,.5);
+}
+
